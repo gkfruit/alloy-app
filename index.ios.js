@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
+  PixelRatio,
   Text,
   View
 } from 'react-native';
@@ -16,16 +17,25 @@ class alloy extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <View style={[styles.item, styles.center]}>
+          <Text style={styles.font}>酒店</Text>
+        </View>
+        <View style={[styles.item, styles.lineLeftRight]}>
+          <View style={[styles.center, styles.flex, styles.lineCenter]}>
+            <Text style={styles.font}>海外酒店</Text>
+          </View>
+          <View style={[styles.center, styles.flex]}>
+            <Text style={styles.font}>特惠酒店</Text>
+          </View>
+        </View>
+        <View style={styles.item}>
+          <View style={[styles.center, styles.flex, styles.lineCenter]}>
+            <Text style={styles.font}>团购</Text>
+          </View>
+          <View style={[styles.center, styles.flex]}>
+            <Text style={styles.font}>客栈.公寓</Text>
+          </View>
+        </View>
       </View>
     );
   }
@@ -33,21 +43,46 @@ class alloy extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
+    // flex: 1,
+    // borderWidth:1,
+    // borderColor:'red',
+    // flexDirection:'row'
+    marginTop:25,
+    marginLeft:5,
+    marginRight:5,
+    height:84,
+    flexDirection:'row',
+    borderRadius:5,
+    padding:2,
+    backgroundColor:'#FF0067'
+  },
+  item:{
+    flex:1,
+    height:80,
+    // borderColor:'blue',
+    // borderWidth:1,
+  },
+  center:{
+    justifyContent:'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  flex:{
+    flex:1
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  font:{
+    color:'#fff',
+    fontSize:16,
+    fontWeight:'bold'
   },
+  lineLeftRight:{
+    borderLeftWidth:1/PixelRatio.get(),
+    borderRightWidth:1/PixelRatio.get(),
+    borderColor:'#fff'
+  },
+  lineCenter:{
+    borderBottomWidth:1/PixelRatio.get(),
+    borderColor:'#fff'
+  }
 });
 
 AppRegistry.registerComponent('alloy', () => alloy);
