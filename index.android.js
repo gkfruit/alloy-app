@@ -16,16 +16,25 @@ class alloy extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Alloy!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <View style={[styles.item, styles.center]}>
+          <Text>酒店</Text>
+        </View>
+        <View style={styles.item}>
+          <View style={[styles.center, styles.flex]}>
+            <Text>海外酒店</Text>
+          </View>
+          <View style={[styles.center, styles.flex]}>
+            <Text>特惠酒店</Text>
+          </View>
+        </View>
+        <View style={styles.item}>
+          <View style={[styles.center, styles.flex]}>
+            <Text>团购</Text>
+          </View>
+          <View style={[styles.center, styles.flex]}>
+            <Text>客栈.公寓</Text>
+          </View>
+        </View>
       </View>
     );
   }
@@ -34,20 +43,23 @@ class alloy extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    borderWidth:1,
+    borderColor:'red',
+    flexDirection:'row'
+  },
+  item:{
+    flex:1,
+    height:80,
+    borderColor:'blue',
+    borderWidth:1,
+  },
+  center:{
+    justifyContent:'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  flex:{
+    flex:1
+  }
 });
 
 AppRegistry.registerComponent('alloy', () => alloy);
